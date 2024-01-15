@@ -74,7 +74,7 @@ l=log(m)-1.96*sigma*(exp(1)^(1.96*sigma))^-0.315
 exp(c(l,u))
 #[[1] 0.8270193 1.4810507
 
-# Assuming nt=320000 comput mu and CI for mu
+# Assuming nt=320000 compute mu and CI for mu
 nt=320000
 mu=m/nt
 mu
