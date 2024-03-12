@@ -35,8 +35,10 @@ loglik=function(m,rVec,rCard){ #input m, unique r and counts of r
 }
   
 f=function(z) {-1*loglik(z,rDt,cDt)}
-  
-m <- optimize(f,c(0,5))$minimum
+
+#find value that maximizes likelihood over fixed interval (0,15)  
+#change the range passed to "optimize" if searching a different interval
+m <- optimize(f,c(0,15))$minimum
 m
 #[1] 1.106733
   
@@ -59,7 +61,7 @@ for (b in 1:nBootstraps) {
    #build log likelihood function - negative for minimisation
    f=function(z) {-1*loglik(z,rBRep,cBRep)}
    #obtain maximum likleihood estimate for bootstrap replicate
-   bReplicates1[b] <- optimize(f,c(0,5))$minimum
+   bReplicates1[b] <- optimize(f,c(0,15))$minimum
 }
 quantile(bReplicates1,c(0.025,0.975))
 #               2.5%         97.5%
